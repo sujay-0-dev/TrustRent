@@ -1,0 +1,1 @@
+RentIt is a peer-to-peer (P2P) rental marketplace where people can rent out items like cameras, books, tools, gadgets, furniture, and other equipment instead of purchasing them. This platform connects owners (lenders) who have items to rent with borrowers who need them for a short period.
