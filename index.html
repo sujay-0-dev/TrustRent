@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | RentIt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class ="marketplace">
+    <header>
+        <div class ="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+     <section class="filters">
+        <div for="category">Category:
+            <select id="category">
+                <option value="all">All</option>
+                <option value="electronics">Electronics & Gadgets</option>
+                <option value="home_appliances">Home Appliances</option>
+                <option value="Photography">Photography & Videography Equipment</option>
+                <option value="veehicles">Vehicles & Transport</option>
+                <option value="tools">Tools & Equipment</option>
+                <option value="adventure">Outdoor & Adventure Gear</option>
+                <option value="events">Event & Party Supplies</option>
+                <option value="sports">Sports & Fitness Equipment</option>
+                <option value="fashion">Fashion & Accessories</option>
+            </select>
+        </div>
+        <label for="price-range">Price Range:
+            <input type="number" id="min-price" placeholder="Minimum price"> - 
+            <input type="number" id="max-price" placeholder="Maximum price">
+        </label>
+
+        <div id="marketplace" class="marketplace">
+            <h3>Marketplace</h3>
+        </div>
+
+
+
+        <button id="filter">Apply Filters</button>
+     </section>
+    </main>
+    <footer>
+        <ul>
+            <p>@Copyright TrustRent</p>
+            <li>Facebook</li>
+            <li>Instragram</li>
+            <li>Twitter</li>
+            <li>Youtube</li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
