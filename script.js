@@ -1,5 +1,4 @@
-const items = [
-
+const products = [
     {id: 1 ,  name:  "DSLR camera" , price:  1000 ,category: "electic",   image: "https://m.media-amazon.com/images/I/41PfbBJIliL.jpg"},
     { id: 2, name: "Laptop", price: 1200, category: "electic", image: "https://techterms.com/img/xl/laptop_586.png" },
     { id: 3, name: "Gaming Console (PS5)", price: 1500,category: "electic", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToQCEaeyaX2qXXUyiZbXomPc7pAHLGN_YgLg&s" },
@@ -53,43 +52,31 @@ const items = [
     { id: 47, name: "Boats & Kayaks", price: 300, category: "Vehicles & Transport", image: "https://5.imimg.com/data5/XN/KI/MY-2439846/double-seater-kayaks-500x500.jpg" },
     { id: 48, name: "Jet Skis", price: 400, category: "Vehicles & Transport", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSintnL0eDFneEwbfLOf2AiG-0xHZYFRA81aQ&s" },
     { id: 49, name: "Skateboards", price: 700, category: "Vehicles & Transport", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX9gAtOdHQqvXcZ3dDuMAHS-s_Himl_BQN7g&s" },
-    { id: 50, name: "Wheelchairs", price: 900, category: "Vehicles & Transport", image: "https://s.alicdn.com/@sc04/kf/H8bc6f9a55c824863bc072d27b0c0f0479.jpg_720x720q50.jpg" },
-    
-      
-    
-]
-function displayProducts() {
-    const productsContainer = document.getElementById(marketplace)
-    productsContainer.innerHTML ='';
+    { id: 50, name: "Wheelchairs", price: 900, category: "Vehicles & Transport", image: "https://s.alicdn.com/@sc04/kf/H8bc6f9a55c824863bc072d27b0c0f0479.jpg_720x720q50.jpg" }
+];
 
-    
-}
-document.addEventListener('DOMContentLoaded',() =>{
-    displayProducts();
-})
 
-document.addEventListener("DOMContentLoaded", function () {
- 
-    // Get Marketplace Container
-    const marketplace = document.getElementById("marketplace");
-
-    // Function to Display Products
     function displayProducts() {
-        marketplace.innerHTML = "<h3>Marketplace</h3>"; // Reset content
+        const marketplaceContainer = document.getElementById('marketplace');
+        marketplaceContainer.innerHTML = '';
 
         products.forEach(product => {
-            const productCard = document.createElement("div");
-            productCard.classList.add("product-card");
-            productCard.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+            const productElement = document.createElement('div');
+            productElement.className = 'product-card';
+        
+            productElement.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" onerror="this.src='/placeholder.svg?height=200&width=300'">
                 <h4>${product.name}</h4>
-                <p>Category: ${product.category}</p>
-                <p>Price: $${product.price}/day</p>
+                <p class="price">₹${product.price}/day</p>
+                <p class="category">${product.category}</p>
+                <button class="rent-button" data-id="${product.id}">Rent Now</button>
             `;
-            marketplace.appendChild(productCard);
+            marketplaceContainer.appendChild(productGrid);
         });
-    }
+    
+   
+}
 
-    // Load Products on Page Load
+document.addEventListener('DOMContentLoaded', () =>{
     displayProducts();
-});
+    })
