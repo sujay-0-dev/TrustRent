@@ -57,7 +57,7 @@ const products = [
 
 
     function displayProducts() {
-        const marketplaceContainer = document.getElementById('marketplace');
+        const marketplaceContainer = document.getElementById('.marketplace');
         marketplaceContainer.innerHTML = '';
 
         products.forEach(product => {
@@ -71,7 +71,7 @@ const products = [
                 <p>${product.category}</p>
                 <button class="rent-button" data-id="${product.id}">Rent Now</button>
             `;
-            marketplaceContainer.appendChild(productGrid);
+            marketplaceContainer.appendChild(productElement);
         });
     
    
