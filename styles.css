@@ -1,137 +1,104 @@
-*{
-    margin: 0px;
-    padding: 0px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
 }
-.nav{
-    height: 60px;
-    padding: auto;
-    margin: auto;
-    background-color: rgb(252, 252, 255);
-}
-.nav ul{
-    max-width: 90%;
-    padding: auto;
-    margin: auto;
-    display: flex;
-    text-decoration: none;
-    justify-content:space-between;
-}
-.nav ul li{
-    padding-top: 22px;
-    text-decoration: none;
-    display: flex;
-    text-align: right;
-    margin-left: 150px;
-    color: #06eefe;
-    
 
-}
-.nav ul li a{
-    text-decoration: none;
-    color: #06d1ff;
-}
-#image1{
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
     display: flex;
-    height: 60px;
-    border-radius: 15%;
-    
+    justify-content: space-between;
+    align-items: center;
 }
-.logo-text{
-    font-size: 1.5rem;
+
+.nav-container {
     display: flex;
     align-items: center;
-    font-weight: 900;
-    color: #3710ab;
 }
-.auth{
-   margin-right: 5px;
+
+.logo {
+    display: flex;
+    align-items: center;
 }
-body{
-    background-color: rgb(162, 220, 254);
+
+.logo-img {
+    height: 50px;
+    margin-right: 10px;
 }
-.header{
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    text-align: center;
-    font-weight: 900;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(10, 18, 244);
-   
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 100px;
+    padding-left: 600px;
     
 }
-.hero p{
-    font-size: 2rem;
-    font-weight: 400;
-    margin-left: 100px;
-    padding-top: 0px;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    color: rgb(6, 23, 152);
-}
-.image{
-    height: 600px;
-}
-#image2{
-    height: 400px;
-    width: 1455px;
-    margin-left: 30px;
-    margin-right: 30px;
-    border-radius: 10%;
-    border: solid 1px rgb(4, 253, 66);
-    box-shadow: #0734e8;
-}
-.about{
-    font-size: 1.8rem;
-    max-width: 90%;
-    margin: auto;
-    padding: auto;
-    margin-bottom: 30px;
-}
-.about p{
-    color: rgb(28, 8, 243);
-    padding-top: 10px;
-}
-.contact{
-    font-size: 1.8rem;
-    max-width: 90%;
-    margin: auto;
-    padding: auto;
-}
-.contact p{
-    color: rgb(47, 8, 243);
-    padding-top: 10px;
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+   
 }
 
+.nav-links a:hover {
+    color: #007bff;
+}
 
-footer {
-    background-color: var(--primary-color);
-    color: white;
+.hero {
+    background-color: #ffffff;
+    color: rgb(24, 38, 120);
+    padding: 20px 20px;
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+}
+.hero img{
+    width: 1470px;
+    height: 400px;
+    border-radius: 20px;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about, .contact {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    text-align: center;
+}
+
+.about h2, .contact h2 {
+    color: #007bff;
+    margin-bottom: 15px;
 }
 
 .footer {
-        background-color: #333;
-        color: #ffffff;
-       
-        padding: 15px;
-        margin-top: 30px;
-        font-size: 0.9em;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
 }
-.footer ul{
-    display: flex;
-    text-decoration: none;
-    justify-content: right;
-    justify-content:space-around;
-    
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
 }
-.footer ul li{
-    display: flex;
-    
+
+.social-icons a:hover {
+    color: #007bff;
 }
-    
- .footer p {
-        padding-left: 100px;
- }
