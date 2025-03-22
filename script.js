@@ -65,10 +65,10 @@ const products = [
             productElement.className = 'product-card';
         
             productElement.innerHTML = `
-                <img src="${product.image}" alt="${product.name}" onerror="this.src='/placeholder.svg?height=200&width=300'">
-                <h4>${product.name}</h4>
-                <p class="price">₹${product.price}/day</p>
-                <p class="category">${product.category}</p>
+                <img src="${product.image}" alt="${product.name}" >
+                <h3>${product.name}</h3>
+                <p>₹${product.price}/day</p>
+                <p>${product.category}</p>
                 <button class="rent-button" data-id="${product.id}">Rent Now</button>
             `;
             marketplaceContainer.appendChild(productGrid);
@@ -79,4 +79,4 @@ const products = [
 
 document.addEventListener('DOMContentLoaded', () =>{
     displayProducts();
-    })
+    });
