@@ -54,27 +54,25 @@ const products = [
     { id: 49, name: "Skateboards", price: 700, category: "Vehicles & Transport", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX9gAtOdHQqvXcZ3dDuMAHS-s_Himl_BQN7g&s" },
     { id: 50, name: "Wheelchairs", price: 900, category: "Vehicles & Transport", image: "https://s.alicdn.com/@sc04/kf/H8bc6f9a55c824863bc072d27b0c0f0479.jpg_720x720q50.jpg" }
 ];
+document.addEventListener("DOMContentLoaded", function () {
+    const productsContainer = document.getElementById("products");
 
-function displayProducts() {
-    const marketplaceContainer = document.querySelector('.marketplace');
-    marketplaceContainer.innerHTML = '';
+    function displayProducts(products) {
+        productsContainer.innerHTML = ""; 
 
-    products.forEach(product => {
-        const productElement = document.createElement('div');
-        productElement.className = 'product-card';
+        products.forEach(product => {
+            const productCard = document.createElement("div");
+            productCard.classList.add("product-card");
 
-        productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" >
-            <h3>${product.name}</h3>
-            <p>₹${product.price}/day</p>
-            <p>${product.category}</p>
-            <button class="rent-button" data-id="${product.id}">Rent Now</button>
-        `;
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" width="150">
+                <h3>${product.name}</h3>
+                <p>Price: $${product.price}</p>
+                <button>Rent Now</button>
+            `;
 
-        marketplaceContainer.appendChild(productElement);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    displayProducts();
+            productsContainer.appendChild(productCard);
+        });
+    }
+    displayProducts(products);
 });
