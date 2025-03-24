@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landers Dashboard</title>
     <link rel="stylesheet" href="landers.css">
 </head>
+
 <body>
     <nav class="nav">
-       
+
         <ul>
-            <img id="image1" src="https://tse1.mm.bing.net/th?id=OIP.jDy8zzZUhdfe0Gpli9jSCAHaFj&pid=Api&P=0&h=180" alt="TrustRent">
+            <img id="image1" src="https://tse1.mm.bing.net/th?id=OIP.jDy8zzZUhdfe0Gpli9jSCAHaFj&pid=Api&P=0&h=180"
+                alt="TrustRent">
             <span class="logo-text">TrustRent</span>
             <li><a href="index.html">Home</a></li>
             <li><a href="marketplace.html">MarketPlace</a></li>
@@ -18,18 +21,100 @@
             <li><a href="#">Contact Us</a></li>
         </ul>
     </nav>
-    <div class="main">
+    <div class="dashboard-content">
+        <div class="welcome-section">
+            <div class="welcome-text">
+                <h1>Welcome Landers Dashboard</h1>
+                <p>Manage your rental products, track orders, and connect with customers all in one place.</p>
 
-    </div>
-    <footer class="footer">
-        <ul>
-            <p>@Copyright TrustRent</p>
-            <li>Facebook</li>
-            <li>Instragram</li>
-            <li>Twitter</li>
-            <li>Youtube</li>
-        </ul>
-    </footer>
+            </div>
+            <div class="welcome-image">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.IuJzlFS4OGBsxL6BXRXDnwHaHa&pid=Api&P=0&h=180" alt="Farmer">
+            </div>
+        </div>
+        <div class="add-product-section">
+            <h1>Add New Product</h1>
+            <div class="peoduct-form-container">
+                <form id="product-form" action="">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" id="product-name" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-type">Product Type</label>
+                            <select id="product-type" required>
+                                <option value="diseable">Select Product Type</option>
+                                <option value="electronics">Electronics & Gadgets</option>
+                                <option value="home_appliances">Home Appliances</option>
+                                <option value="Photography">Photography & Videography Equipment</option>
+                                <option value="veehicles">Vehicles & Transport</option>
+                                <option value="tools">Tools & Equipment</option>
+                                <option value="adventure">Outdoor & Adventure Gear</option>
+                                <option value="events">Event & Party Supplies</option>
+                                <option value="sports">Sports & Fitness Equipment</option>
+                                <option value="fashion">Fashion & Accessories</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-amount">Time Interval</label>
+                            <select id="time-interval" required>
+                                <option value="diseable">Select Product Type</option>
+                                <option value="day">Day</option>
+                                <option value="week">Weekly</option>
+                                <option value="month">Monthly</option>
+                                <option value="year">Yearly</option>
+                                
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price">Price (₹) (Accoding to time interval)</label>
+                            <input type="number" id="product-price" placeholder="0.00" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="farm-name">Landers Name</label>
+                            <input type="text" id="Landers-name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landers-address">Landers Address</label>
+                            <input type="text" id="landers-address" placeholder="Your address" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="product-description">Product Description</label>
+                            <textarea id="product-description" placeholder="Describe your product"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">Product Image</label>
+                            <input type="file" id="product-image" accept="image/*" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="add-product-btn">Add Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="recent-products-section">
+                <div class="section-header">
+                    <h2>Recent Products</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="product-cards" id="landers-products">
+                
+                </div>
+            </div>
+
+        </div>
+        <footer class="footer">
+            <ul>
+                <p>@Copyright TrustRent</p>
+                <li>Facebook</li>
+                <li>Instragram</li>
+                <li>Twitter</li>
+                <li>Youtube</li>
+            </ul>
+        </footer>
 </body>
 <script src="landers.js"></script>
+
 </html>
