@@ -56,23 +56,70 @@ const products = [
 ];
 document.addEventListener("DOMContentLoaded", function () {
     const productsContainer = document.getElementById("products");
+    const filterBtn = document.getElementById("filter-btn");
+    const categoryFilter = document.getElementById("category");
+    const minPriceFilter = document.getElementById("min-price");
+    const maxPriceFilter = document.getElementById("max-price");
+    const resetBtn = document.getElementById("reset-btn");
 
     function displayProducts(products) {
         productsContainer.innerHTML = ""; 
+        
 
         products.forEach(product => {
             const productCard = document.createElement("div");
             productCard.classList.add("product-card");
 
             productCard.innerHTML = `
-                <img src="${product.image}" alt="${product.name}" width="150">
+                <img src="${product.image}" 
+                alt="${product.name}" width="150">
                 <h3>${product.name}</h3>
-                <p>Price: $${product.price}</p>
+                <p>Price: ₹${product.price}</p>
                 <button>Rent Now</button>
             `;
 
             productsContainer.appendChild(productCard);
         });
+        if (products.length === 0) {
+            productsContainer.innerHTML = `
+                <div class="no-products">
+                    <h3>No products found</h3>
+                </div>
+            `;
+            return;
+        }
     }
     displayProducts(products);
+
+    
+    // Filter products function
+    function filterProducts() {
+        const selectedCategory = categoryFilter.value.trim().toLowerCase();
+        const minPrice = Number(minPriceFilter.value )|| 0;
+        const maxPrice = Number(maxPriceFilter.value)|| Infinity;
+
+        let filteredProducts = products;
+
+        // Filter by category
+        if (selectedCategory !== 'all') {
+            filteredProducts = filteredProducts.filter(product => 
+                product.category.trim.toLowerCase() === selectedCategory.toLowerCase());
+        }
+
+        // Filter by price range
+        filteredProducts = filteredProducts.filter(product => 
+            product.price >= minPrice && product.price <= maxPrice);
+
+        return filteredProducts;
+    }
+    filterBtn.addEventListener('click', function() {
+        const filteredProducts = filterProducts();
+        displayProducts(filteredProducts);
+    });
+    resetBtn.addEventListener("click", function () {
+        categoryFilter.value = "all";
+        minPriceFilter.value = "";
+        maxPriceFilter.value = "";
+        displayProducts(products);
+    });
 });
