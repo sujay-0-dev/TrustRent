@@ -5,8 +5,8 @@ const products = [
     { id: 4, name: "Drone", price: 2000, category: "electic", image: "https://m.media-amazon.com/images/I/61j3N1UZ4-L._AC_UF1000,1000_QL80_.jpg" },
     { id: 5, name: "Projector", price: 800, category: "electic", image: "https://avstore.in/cdn/shop/products/AVStore-Epson-EH-TW-5820-Hero.jpg?v=1636360796" },
     { id: 6, name: "VR Headset", price: 500, category: "electic", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdMv92mKozPmuiphAfBpuHkCYYKGx3M7mr_A&s" },
-    { id: 7, name: "Smartwatch", price: 300, category: "electic", image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/smartwatch/v/e/j/49-4g-smart-watch-android-ios-wellsys-yes-original-imagefahedke5khb.jpeg?q=90&crop=false" },
-    { id: 8, name: "Studio Microphone", price: 400, category: "electic", image: "https://m.media-amazon.com/images/I/61xIvlM8bPL._SL1500_.jpg" },
+    { id: 7, name: "Smartwatch", price: 300, category: "electic", image: "https://cdn.mos.cms.futurecdn.net/P4kF4ZkALuGge8KRQgcJUY-1200-80.jpg" },
+    { id: 8, name: "Studio Microphone", price: 400, category: "electic", image: "https://m.media-amazon.com/images/I/61PgvuXMp+L.jpg" },
     { id: 9, name: "Tablet (iPad)", price: 700, category: "electic", image: "https://images.indianexpress.com/2023/10/apple-ipad-10-gen-featured.jpg?w=414" },
     { id: 10, name: "GoPro Action Camera", price: 900, category: "electic", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZckVutG-zBKXt6h1gapNaKbyv35x9DBs_qg&s" },
 
@@ -63,23 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const resetBtn = document.getElementById("reset-btn");
 
     function displayProducts(products) {
+        console.log("Displaying products:", products);
         productsContainer.innerHTML = ""; 
-        
 
-        products.forEach(product => {
-            const productCard = document.createElement("div");
-            productCard.classList.add("product-card");
-
-            productCard.innerHTML = `
-                <img src="${product.image}" 
-                alt="${product.name}" width="150">
-                <h3>${product.name}</h3>
-                <p>Price: ₹${product.price}</p>
-                <button>Rent Now</button>
-            `;
-
-            productsContainer.appendChild(productCard);
-        });
         if (products.length === 0) {
             productsContainer.innerHTML = `
                 <div class="no-products">
@@ -88,35 +74,53 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
             return;
         }
+
+        products.forEach(product => {
+            const productCard = document.createElement("div");
+            productCard.classList.add("product-card");
+
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" width="150">
+                <h3>${product.name}</h3>
+                <p>Price: ₹${product.price}</p>
+                <button>Rent Now</button>
+            `;
+
+            productsContainer.appendChild(productCard);
+        });
     }
+
     displayProducts(products);
 
-    
-    // Filter products function
     function filterProducts() {
         const selectedCategory = categoryFilter.value.trim().toLowerCase();
-        const minPrice = Number(minPriceFilter.value )|| 0;
-        const maxPrice = Number(maxPriceFilter.value)|| Infinity;
+        const minPrice = minPriceFilter.value ? Number(minPriceFilter.value) : 0;
+        const maxPrice = maxPriceFilter.value ? Number(maxPriceFilter.value) : Infinity;
 
         let filteredProducts = products;
 
-        // Filter by category
-        if (selectedCategory !== 'all') {
+        if (selectedCategory !== "all") {
             filteredProducts = filteredProducts.filter(product => 
-                product.category.trim.toLowerCase() === selectedCategory.toLowerCase());
+                product.category.toLowerCase() === selectedCategory
+            );
         }
 
-        // Filter by price range
         filteredProducts = filteredProducts.filter(product => 
-            product.price >= minPrice && product.price <= maxPrice);
+            product.price >= minPrice && product.price <= maxPrice
+        );
 
+        console.log("Filtered Products:", filteredProducts);
         return filteredProducts;
     }
-    filterBtn.addEventListener('click', function() {
+
+    filterBtn.addEventListener("click", function () {
+        console.log("Filter button clicked");
         const filteredProducts = filterProducts();
         displayProducts(filteredProducts);
     });
+
     resetBtn.addEventListener("click", function () {
+        console.log("Reset button clicked");
         categoryFilter.value = "all";
         minPriceFilter.value = "";
         maxPriceFilter.value = "";
